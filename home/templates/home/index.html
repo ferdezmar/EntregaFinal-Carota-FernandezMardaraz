@@ -1,0 +1,36 @@
+{% extends 'home/base.html' %}
+
+{% block mi_contenido %}
+    {% block mi_header %}
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-5">
+                                {% block h1_texto_header %}
+                                <p>Primera Entrega del Proyecto Final</p>
+                                Fernández Mardaraz - Carota
+                                {% endblock h1_texto_header %}
+                            </h1>
+                            <!-- Signup form-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- * * SB Forms Contact Form * *-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- This form is pre-integrated with SB Forms.-->
+                            <!-- To make this form functional, sign up at-->
+                            <!-- https://startbootstrap.com/solution/contact-forms-->
+                            <!-- to get an API token!-->
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endblock mi_header %}
+
+    {% block index_contenido %}
+    {% endblock index_contenido %}
+{% endblock mi_contenido  %}
