@@ -16,7 +16,7 @@
 </form>
 
 <p>
-    {% if mascotas %}
+    {% if object_list %}
 
         <table>
         <tr>
@@ -25,7 +25,7 @@
             <th width="50px">Edad</th>
             <th width="180px">Fecha de Nacimiento</th>
         </tr>
-        {% for mascota in mascotas %}
+        {% for mascota in object_list %}
         <tr>   
             <td>{{mascota.nombre}}</td>
             <td>{{mascota.tipo}}</td>
@@ -36,7 +36,7 @@
             </button></td>
             <td><button>
             <a href={% url 'eliminar_mascota' mascota.id %}>Eliminar</a>
-            </button>
+            </button></td>
             </tr>
             
         {% endfor %}

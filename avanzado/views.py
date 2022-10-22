@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from avanzado.models import Mascota
 from avanzado.forms import MascotaFormulario
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 def ver_mascotas (request):
     
@@ -66,3 +68,30 @@ def eliminar_mascota(request, id):
     mascota = Mascota.objects.get(id=id)
     mascota.delete()
     return redirect('ver_mascotas')
+
+
+class ListaMascotas(ListView):
+    model = Mascota
+    template_name = 'avanzado/ver_mascotas_cbv.html'
+
+class CrearMascota(CreateView):
+    model = Mascota
+    success_url = '/avanzado/mascotas/'
+    template_name = 'avanzado/crear_mascota_cbv.html'
+    fields = ['nombre','tipo', 'edad', 'fecha_nacimiento']
+    
+class EditarMascota(UpdateView):
+    model = Mascota
+    success_url = '/avanzado/mascotas/'
+    template_name = 'avanzado/editar_mascota_cbv.html'
+    fields = ['nombre','tipo', 'edad', 'fecha_nacimiento']
+    
+class EliminarMascota(DeleteView):
+    model = Mascota
+    success_url = '/avanzado/mascotas/'
+    template_name = 'avanzado/eliminar_mascota_cbv.html'
+    
+    
+    
+# class VerMascota():
+    
