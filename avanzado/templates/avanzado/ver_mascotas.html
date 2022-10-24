@@ -11,7 +11,7 @@
 <form action={% url 'ver_mascotas' %} method="GET">
     <p>
     {{formulario}}
-    <button>Buscar</button>
+    {% comment %} <button>Buscar</button> {% endcomment %}
     </p>
 </form>
 
@@ -31,12 +31,12 @@
             <td>{{mascota.tipo}}</td>
             <td>{{mascota.edad}}</td>
             <td>{{mascota.fecha_nacimiento}}</td>
-            <td><button>
+            <td>
             <a href={% url 'editar_mascota' mascota.id %}>Editar</a>
-            </button></td>
-            <td><button>
+            </td>
+            <td>
             <a href={% url 'eliminar_mascota' mascota.id %}>Eliminar</a>
-            </button>
+            </td>
             </tr>
             
         {% endfor %}

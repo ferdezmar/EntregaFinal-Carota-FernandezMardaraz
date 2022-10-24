@@ -1,0 +1,51 @@
+{% extends 'home/base.html' %}
+
+{% block mi_titulo %}
+<title>Autos</title>
+{% endblock mi_titulo %}
+
+{% block mi_contenido %}
+<a class="navbar-brand" href={% url 'crear_auto' %}>Crear Auto</a>
+<p> Listado de autos: </p>
+
+<form action={% url 'ver_autos' %} method="GET">
+    <p>
+    {{formulario}}
+    {% comment %} <button>Buscar</button> {% endcomment %}
+    </p>
+</form>
+
+<p>
+    {% if object_list %}
+
+        <table>
+        <tr>
+            <th width="180px">Modelo</th>
+            <th width="180px">Marca</th>
+            <th width="50px">Puertas</th>
+            <th width="180px">Color</th>
+        </tr>
+        {% for auto in object_list %}
+        <tr>   
+            <td>{{auto.modelo}}</td>
+            <td>{{auto.marca}}</td>
+            <td>{{auto.cant_puertas}}</td>
+            <td>{{auto.color}}</td>
+            <td>
+            <a href={% url 'editar_auto' auto.id %}>Editar</a>
+            </td>
+            <td>
+            <a href={% url 'eliminar_auto' auto.id %}>Eliminar</a>
+            </td>
+            </tr>
+            
+        {% endfor %}
+        
+        </table>
+
+    {% else %}
+        <p>No hay autos creados o la busqueda no coincide.</p>
+    {% endif %}
+
+</p>
+{% endblock mi_contenido %}

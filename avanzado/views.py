@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from avanzado.models import Mascota
+from avanzado.models import Mascota, Auto
 from avanzado.forms import MascotaFormulario
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -35,6 +35,7 @@ def crear_mascota (request):
     
     return render(request, 'avanzado/crear_mascota.html', {'formulario': formulario})
 
+@login_required
 def editar_mascota(request, id):
     
     mascota = Mascota.objects.get(id=id)
@@ -65,6 +66,7 @@ def editar_mascota(request, id):
     
     return render(request, 'avanzado/crear_mascota.html', {'formulario': formulario, 'mascota': mascota})
 
+@login_required
 def eliminar_mascota(request, id):
     
     mascota = Mascota.objects.get(id=id)
@@ -72,26 +74,26 @@ def eliminar_mascota(request, id):
     return redirect('ver_mascotas')
 
 
-class ListaMascotas(ListView):
-    model = Mascota
-    template_name = 'avanzado/ver_mascotas_cbv.html'
+class ListaAutos(ListView):
+    model = Auto
+    template_name = 'avanzado/ver_autos.html'
 
-class CrearMascota(CreateView):
-    model = Mascota
-    success_url = '/avanzado/mascotas/'
-    template_name = 'avanzado/crear_mascota_cbv.html'
-    fields = ['nombre','tipo', 'edad', 'fecha_nacimiento']
+class CrearAuto(LoginRequiredMixin, CreateView):
+    model = Auto
+    success_url = '/avanzado/autos/'
+    template_name = 'avanzado/crear_auto.html'
+    fields = ['modelo','marca', 'cant_puertas', 'color']
     
-class EditarMascota(LoginRequiredMixin,UpdateView):
-    model = Mascota
-    success_url = '/avanzado/mascotas/'
-    template_name = 'avanzado/editar_mascota_cbv.html'
-    fields = ['nombre','tipo', 'edad', 'fecha_nacimiento']
+class EditarAuto(LoginRequiredMixin,UpdateView):
+    model = Auto
+    success_url = '/avanzado/autos/'
+    template_name = 'avanzado/editar_auto.html'
+    fields = ['modelo','marca', 'cant_puertas', 'color']
     
-class EliminarMascota(LoginRequiredMixin, DeleteView):
-    model = Mascota
-    success_url = '/avanzado/mascotas/'
-    template_name = 'avanzado/eliminar_mascota_cbv.html'
+class EliminarAuto(LoginRequiredMixin, DeleteView):
+    model = Auto
+    success_url = '/avanzado/autos/'
+    template_name = 'avanzado/eliminar_auto.html'
     
     
     
