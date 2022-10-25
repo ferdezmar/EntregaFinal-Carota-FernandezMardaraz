@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from avanzado.models import Mascota, Auto
 from avanzado.forms import MascotaFormulario
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required 
@@ -97,5 +97,7 @@ class EliminarAuto(LoginRequiredMixin, DeleteView):
     
     
     
-# class VerMascota():
+# class VerAuto(DetailView):
+#     model = Auto
+#     template_name = 'avanzado/ver_auto.html'
     

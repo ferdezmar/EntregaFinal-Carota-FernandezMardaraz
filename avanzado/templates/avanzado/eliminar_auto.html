@@ -8,7 +8,7 @@
 <form action={% url 'eliminar_auto' object.id %} method="POST">
     {% csrf_token %}
     <p> 
-    Confirmar eliminación de {{object}}
+    Confirmar eliminación de {{object.modelo}}
     </p>
     <button>Sí</button>
 

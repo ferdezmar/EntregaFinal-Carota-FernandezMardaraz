@@ -1,12 +1,11 @@
 {% extends 'home/base.html' %}
 
 {% block mi_titulo %}
-<title>Autos</title>
+<title>Auto</title>
 {% endblock mi_titulo %}
 
 {% block mi_contenido %}
-<a class="navbar-brand" href={% url 'crear_auto' %}>Crear Auto</a>
-<p> Listado de autos: </p>
+<p></p>
 
 <form action={% url 'ver_autos' %} method="GET">
     <p>
@@ -16,8 +15,6 @@
 </form>
 
 <p>
-    {% if object_list %}
-
         <table>
         <tr>
             <th width="180px">Modelo</th>
@@ -31,24 +28,20 @@
             <td>{{auto.marca}}</td>
             <td>{{auto.cant_puertas}}</td>
             <td>{{auto.color}}</td>
+            <td>{{auto.chasis}}</td>
             <td>
             <a href={% url 'editar_auto' auto.id %}>Editar</a>
             </td>
             <td>
             <a href={% url 'eliminar_auto' auto.id %}>Eliminar</a>
             </td>
-            {% comment %} <td>
-            <a href={% url 'ver_auto' auto.id %}>{{auto}}</a>
-            </td> {% endcomment %}
             </tr>
             
         {% endfor %}
         
         </table>
 
-    {% else %}
-        <p>No hay autos creados o la busqueda no coincide.</p>
-    {% endif %}
+    
 
 </p>
 {% endblock mi_contenido %}
