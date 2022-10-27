@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from avanzado.models import Mascota, Auto
-from avanzado.forms import MascotaFormulario
+from avanzado.forms import MascotaFormulario, BusquedaAuto
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -77,18 +77,31 @@ def eliminar_mascota(request, id):
 class ListaAutos(ListView):
     model = Auto
     template_name = 'avanzado/ver_autos.html'
+    
+    def get_queryset(self):
+        chasis = self.request.GET.get('chasis', '')
+        if chasis:
+            object_list = self.model.objects.filter(chasis__icontains=chasis)
+        else:
+            object_list = self.model.objects.all()
+        return object_list
+    
+    def get_context_data (self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["formulario"] = BusquedaAuto
+        return context
 
 class CrearAuto(LoginRequiredMixin, CreateView):
     model = Auto
     success_url = '/avanzado/autos/'
     template_name = 'avanzado/crear_auto.html'
-    fields = ['modelo','marca', 'cant_puertas', 'color']
+    fields = ['modelo','marca', 'cant_puertas', 'color','chasis', 'descripcion']
     
 class EditarAuto(LoginRequiredMixin,UpdateView):
     model = Auto
     success_url = '/avanzado/autos/'
     template_name = 'avanzado/editar_auto.html'
-    fields = ['modelo','marca', 'cant_puertas', 'color']
+    fields = ['modelo','marca', 'cant_puertas', 'color', 'chasis', 'descripcion']
     
 class EliminarAuto(LoginRequiredMixin, DeleteView):
     model = Auto
@@ -97,7 +110,7 @@ class EliminarAuto(LoginRequiredMixin, DeleteView):
     
     
     
-# class VerAuto(DetailView):
-#     model = Auto
-#     template_name = 'avanzado/ver_auto.html'
+class VerAuto(LoginRequiredMixin, DetailView):
+    model = Auto
+    template_name = 'avanzado/ver_auto.html'
     

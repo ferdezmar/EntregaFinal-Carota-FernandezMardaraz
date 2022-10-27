@@ -11,7 +11,7 @@
 <form action={% url 'ver_autos' %} method="GET">
     <p>
     {{formulario}}
-    {% comment %} <button>Buscar</button> {% endcomment %}
+    <button>Buscar</button>
     </p>
 </form>
 
@@ -24,6 +24,8 @@
             <th width="180px">Marca</th>
             <th width="50px">Puertas</th>
             <th width="180px">Color</th>
+            <th width="180px">Chasis</th>
+            <th width="180px">Descripcion</th>
         </tr>
         {% for auto in object_list %}
         <tr>   
@@ -31,15 +33,17 @@
             <td>{{auto.marca}}</td>
             <td>{{auto.cant_puertas}}</td>
             <td>{{auto.color}}</td>
+            <td>{{auto.chasis}}</td>
+            <td>{{auto.descripcion  | safe }}</td>
             <td>
             <a href={% url 'editar_auto' auto.id %}>Editar</a>
             </td>
             <td>
             <a href={% url 'eliminar_auto' auto.id %}>Eliminar</a>
             </td>
-            {% comment %} <td>
-            <a href={% url 'ver_auto' auto.id %}>{{auto}}</a>
-            </td> {% endcomment %}
+            <p>
+            <a href={% url 'ver_auto' auto.id %}>{{auto.modelo}}</a>
+            </td>
             </tr>
             
         {% endfor %}
