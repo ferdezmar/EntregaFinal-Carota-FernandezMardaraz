@@ -10,6 +10,6 @@ from ckeditor.fields import RichTextFormField
 #     chasis = forms.CharField(max_length=20)
 #     descripcion = RichTextFormField(required=False)
 
-class BusquedaAuto(forms.Form):
+class BusquedaPost(forms.Form):
     chasis = forms.CharField(max_length=20, required=False)
 

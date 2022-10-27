@@ -2,7 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 
-class Auto (models.Model):
+class Post (models.Model):
     modelo = models.CharField(max_length=20)
     marca = models.CharField(max_length=20)
     cant_puertas = models.IntegerField()

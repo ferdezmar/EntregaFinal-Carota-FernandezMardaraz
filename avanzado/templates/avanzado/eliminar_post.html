@@ -1,11 +1,11 @@
 {% extends 'home/base.html' %}
 
 {% block mi_titulo %}
-<title>Eliminar auto</title>
+<title>Eliminar post</title>
 {% endblock mi_titulo %}
 
 {% block mi_contenido %}
-<form action={% url 'eliminar_auto' object.id %} method="POST">
+<form action={% url 'eliminar_post' object.id %} method="POST">
     {% csrf_token %}
     <p> 
     Confirmar eliminación de {{object.modelo}}

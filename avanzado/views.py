@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from avanzado.models import Auto
-from avanzado.forms import BusquedaAuto
+from avanzado.models import Post
+from avanzado.forms import BusquedaPost
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -8,9 +8,9 @@ from django.contrib.auth.decorators import login_required
 
 
 
-class ListaAutos(ListView):
-    model = Auto
-    template_name = 'avanzado/ver_autos.html'
+class ListaPost(ListView):
+    model = Post
+    template_name = 'avanzado/ver_post.html'
     
     def get_queryset(self):
         chasis = self.request.GET.get('chasis', '')
@@ -22,29 +22,29 @@ class ListaAutos(ListView):
     
     def get_context_data (self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["formulario"] = BusquedaAuto
+        context["formulario"] = BusquedaPost
         return context
 
-class CrearAuto(LoginRequiredMixin, CreateView):
-    model = Auto
-    success_url = '/avanzado/autos/'
-    template_name = 'avanzado/crear_auto.html'
+class CrearPost(LoginRequiredMixin, CreateView):
+    model = Post
+    success_url = '/avanzado/post/'
+    template_name = 'avanzado/crear_post.html'
     fields = ['modelo','marca', 'cant_puertas', 'color','chasis', 'descripcion']
     
-class EditarAuto(LoginRequiredMixin,UpdateView):
-    model = Auto
-    success_url = '/avanzado/autos/'
-    template_name = 'avanzado/editar_auto.html'
+class EditarPost(LoginRequiredMixin,UpdateView):
+    model = Post
+    success_url = '/avanzado/post/'
+    template_name = 'avanzado/editar_post.html'
     fields = ['modelo','marca', 'cant_puertas', 'color', 'chasis', 'descripcion']
     
-class EliminarAuto(LoginRequiredMixin, DeleteView):
-    model = Auto
-    success_url = '/avanzado/autos/'
-    template_name = 'avanzado/eliminar_auto.html'
+class EliminarPost(LoginRequiredMixin, DeleteView):
+    model = Post
+    success_url = '/avanzado/post/'
+    template_name = 'avanzado/eliminar_post.html'
     
     
     
-class VerAuto(LoginRequiredMixin, DetailView):
-    model = Auto
-    template_name = 'avanzado/ver_auto.html'
+class VerPost(LoginRequiredMixin, DetailView):
+    model = Post
+    template_name = 'avanzado/ver_post.html'
     

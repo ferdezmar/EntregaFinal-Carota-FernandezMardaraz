@@ -1,14 +1,14 @@
 {% extends 'home/base.html' %}
 
 {% block mi_titulo %}
-<title>Autos</title>
+<title>Posts</title>
 {% endblock mi_titulo %}
 
 {% block mi_contenido %}
-<a class="navbar-brand" href={% url 'crear_auto' %}>Crear Auto</a>
-<p> Listado de autos: </p>
+<a class="navbar-brand" href={% url 'crear_post' %}>Crear Post</a>
+<p> Listado de posts: </p>
 
-<form action={% url 'ver_autos' %} method="GET">
+<form action={% url 'ver_post' %} method="GET">
     <p>
     {{formulario}}
     <button>Buscar</button>
@@ -27,22 +27,22 @@
             <th width="180px">Chasis</th>
             <th width="180px">Descripcion</th>
         </tr>
-        {% for auto in object_list %}
+        {% for post in object_list %}
         <tr>   
-            <td>{{auto.modelo}}</td>
-            <td>{{auto.marca}}</td>
-            <td>{{auto.cant_puertas}}</td>
-            <td>{{auto.color}}</td>
-            <td>{{auto.chasis}}</td>
-            <td>{{auto.descripcion  | safe }}</td>
+            <td>{{post.modelo}}</td>
+            <td>{{post.marca}}</td>
+            <td>{{post.cant_puertas}}</td>
+            <td>{{post.color}}</td>
+            <td>{{post.chasis}}</td>
+            <td>{{post.descripcion  | safe }}</td>
             <td>
-            <a href={% url 'editar_auto' auto.id %}>Editar</a>
+            <a href={% url 'editar_post' post.id %}>Editar</a>
             </td>
             <td>
-            <a href={% url 'eliminar_auto' auto.id %}>Eliminar</a>
+            <a href={% url 'eliminar_post' post.id %}>Eliminar</a>
             </td>
             <p>
-            <a href={% url 'ver_auto' auto.id %}>{{auto.modelo}}</a>
+            <a href={% url 'ver_post' post.id %}>{{post.modelo}}</a>
             </td>
             </tr>
             
@@ -51,7 +51,7 @@
         </table>
 
     {% else %}
-        <p>No hay autos creados o la busqueda no coincide.</p>
+        <p>No hay posts creados o la busqueda no coincide.</p>
     {% endif %}
 
 </p>
