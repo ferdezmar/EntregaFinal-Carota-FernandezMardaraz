@@ -13,3 +13,12 @@ realizar busquedas en base al nombre de los usuarios.
 
 ## Acerca de nosotros
 En esta seccion hay una breve descripcion de los integrantes del proyecto.
+
+Federico Carota
+28 años
+Lic. Administracion de Empresas
+Estudiante en Coder House
+
+Federico Fernandez Mardaraz
+31 años
+Estudiante de la Lic. en Física
