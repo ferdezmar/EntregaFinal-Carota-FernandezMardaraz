@@ -5,10 +5,10 @@
 {% endblock mi_titulo %}
 
 {% block mi_contenido %}
-<form action={% url 'eliminar_post' object.id %} method="POST">
+<form action={% url 'eliminar_post' post.id %} method="POST">
     {% csrf_token %}
     <p> 
-    Confirmar eliminación de {{object.modelo}}
+    Confirmar eliminación de post con titulo "{{post.titulo}}"
     </p>
     <button>Sí</button>
 

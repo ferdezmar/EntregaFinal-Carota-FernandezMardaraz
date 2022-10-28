@@ -5,16 +5,26 @@
 {% endblock mi_titulo %}
 
 {% block mi_contenido %}
+
+<h1>{{post.titulo}}</h1>
+<h2>{{post.subtitulo}}</h2>
+
+{% if post.imagen %}
+    <p>
+        {{post.imagen | safe }}
+    </p>
+{% endif %}
+
+<table border="1px" width="100%">
+    <tr>
+        <td>
+            {{ post.contenido | safe }}
+        </td>
+    </tr>
+</table>
+
 <p>
-    <li>Modelo: {{auto.modelo}}</li>
-    <li>Marca: {{auto.marca}}</li>
-    <li>Color: {{auto.color}}</li>
-    <li>Chasis: {{auto.chasis}}</li>
-    <li>Cant de puertas: {{auto.cant_puertas}}</li>
-    <li>Descripcion: {{auto.descripcion | safe }}</li>
+<b>Autor:</b> {{post.autor}} <b>Fecha:</b> {{post.fecha_creacion}}
 </p>
 
-
-
-</p>
 {% endblock mi_contenido %}
