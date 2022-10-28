@@ -1,10 +1,9 @@
-from django.shortcuts import render, redirect
+import datetime
 from avanzado.models import Post
 from avanzado.forms import BusquedaPost
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.decorators import login_required 
 
 
 class ListaPost(ListView):
@@ -29,14 +28,19 @@ class CrearPost(LoginRequiredMixin, CreateView):
     model = Post
     success_url = '/avanzado/post/'
     template_name = 'avanzado/crear_post.html'
-    fields = ['titulo','subtitulo', 'contenido', 'autor','fecha_creacion', 'imagen']
+    fields = ['titulo', 'subtitulo', 'contenido', 'imagen']
+
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        form.instance.fecha_creacion = datetime.datetime.now()
+        return super().form_valid(form)
 
 
-class EditarPost(LoginRequiredMixin,UpdateView):
+class EditarPost(LoginRequiredMixin, UpdateView):
     model = Post
     success_url = '/avanzado/post/'
     template_name = 'avanzado/editar_post.html'
-    fields = ['titulo','subtitulo', 'contenido', 'autor', 'fecha_creacion', 'imagen']
+    fields = ['titulo','subtitulo', 'contenido', 'imagen']
 
 
 class EliminarPost(LoginRequiredMixin, DeleteView):
