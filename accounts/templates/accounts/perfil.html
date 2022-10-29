@@ -7,18 +7,22 @@
 {% block mi_contenido %}
 <h1/>Información usuario:</h1>
 <p>
-    <li>
         {% if request.user.extensionusuario.avatar %}
         <img src={{request.user.extensionusuario.avatar.url}} alt="" style="width: 100px; height: 100px">
         {% else %}
         Imágen no cargada
         {% endif %}
-    </li>
 </p>
-<p>
-<li>Nombre: {{request.user.first_name}}</li>
-<li>Apellido: {{request.user.last_name}}</li>
-<li>Email: {{request.user.email}}</li>
+<br>
+<b>Nombre:</b> {{request.user.first_name}}</br>
+<b>Apellido:</b> {{request.user.last_name}}</br>
+<b>Email:</b> {{request.user.email}}</br>
+{% if request.user.extensionusuario.descripcion %}
+<b>Descripcion:</b> {{request.user.extensionusuario.descripcion}}</br>
+{% endif %}
+{% if request.user.extensionusuario.link_pagina %}
+<b>Link a pagina:</b> {{request.user.extensionusuario.link_pagina}}</br>
+{% endif %}
 </p>
 <p>
     <a href={% url 'editar_perfil' %}>Editar datos</a>
