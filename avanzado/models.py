@@ -9,4 +9,4 @@ class Post (models.Model):
     contenido = RichTextField(null=False)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     fecha_creacion =  models.DateField()
-    imagen = models.ImageField(upload_to='post_imagen', null=True, blank=True)
+    imagen = models.ImageField(upload_to='posts', null=True, blank=True)
