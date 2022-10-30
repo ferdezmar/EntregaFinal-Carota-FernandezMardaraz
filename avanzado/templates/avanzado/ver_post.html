@@ -11,7 +11,7 @@
 
 {% if post.imagen %}
     <p>
-        {{post.imagen | safe }}
+        <img src={{post.imagen.url}} alt="" style="width: 100px; height: 100px">
     </p>
 {% endif %}
 

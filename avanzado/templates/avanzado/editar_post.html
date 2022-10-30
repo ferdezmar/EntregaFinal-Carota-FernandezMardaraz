@@ -5,7 +5,7 @@
 {% endblock mi_titulo %}
 
 {% block mi_contenido %}
-<form action={% url 'editar_post' post.id %} method="POST">
+<form action={% url 'editar_post' post.id %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
 
     <table>
