@@ -11,7 +11,7 @@ class Post (forms.Form):
     contenido = RichTextFormField(label = 'Contenido')
     autor = User
     fecha_creacion =  datetime.datetime.now()
-    imagen = forms.ImageField(required=False)
+    imagen = forms.ImageField(label = 'Imagen', required=False)
 
 class BusquedaPost(forms.Form):
     titulo = forms.CharField(max_length=100, required=False)
