@@ -1,5 +1,5 @@
 from django.urls import path
-from avanzado import views
+from blog import views
 
 urlpatterns = [    
     path('post/', views.ListaPost.as_view(), name='ver_post'),

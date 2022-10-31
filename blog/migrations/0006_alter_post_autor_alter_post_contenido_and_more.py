@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('avanzado', '0005_post_delete_auto'),
+        ('blog', '0005_post_delete_auto'),
     ]
 
     operations = [

@@ -1,6 +1,6 @@
 import datetime
-from avanzado.models import Post
-from avanzado.forms import BusquedaPost
+from blog.models import Post
+from blog.forms import BusquedaPost
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class ListaPost(ListView):
     model = Post
-    template_name = 'avanzado/ver_posts.html'
+    template_name = 'blog/ver_posts.html'
 
     def get_queryset(self):
         titulo = self.request.GET.get('titulo', '')
@@ -26,8 +26,8 @@ class ListaPost(ListView):
 
 class CrearPost(LoginRequiredMixin, CreateView):
     model = Post
-    success_url = '/avanzado/post/'
-    template_name = 'avanzado/crear_post.html'
+    success_url = '/blog/post/'
+    template_name = 'blog/crear_post.html'
     fields = ['titulo', 'subtitulo', 'contenido', 'imagen']
 
     def form_valid(self, form):
@@ -38,17 +38,17 @@ class CrearPost(LoginRequiredMixin, CreateView):
 
 class EditarPost(LoginRequiredMixin, UpdateView):
     model = Post
-    success_url = '/avanzado/post/'
-    template_name = 'avanzado/editar_post.html'
+    success_url = '/blog/post/'
+    template_name = 'blog/editar_post.html'
     fields = ['titulo','subtitulo', 'contenido', 'imagen']
 
 
 class EliminarPost(LoginRequiredMixin, DeleteView):
     model = Post
-    success_url = '/avanzado/post/'
-    template_name = 'avanzado/eliminar_post.html'
+    success_url = '/blog/post/'
+    template_name = 'blog/eliminar_post.html'
 
 
 class VerPost(LoginRequiredMixin, DetailView):
     model = Post
-    template_name = 'avanzado/ver_post.html'
+    template_name = 'blog/ver_post.html'
