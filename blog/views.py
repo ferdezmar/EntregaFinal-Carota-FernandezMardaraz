@@ -26,7 +26,7 @@ class ListaPost(ListView):
 
 class CrearPost(LoginRequiredMixin, CreateView):
     model = Post
-    success_url = '/blog/post/'
+    success_url = '/blog/pages/'
     template_name = 'blog/crear_post.html'
     fields = ['titulo', 'subtitulo', 'contenido', 'imagen']
 
@@ -38,14 +38,14 @@ class CrearPost(LoginRequiredMixin, CreateView):
 
 class EditarPost(LoginRequiredMixin, UpdateView):
     model = Post
-    success_url = '/blog/post/'
+    success_url = '/blog/pages/'
     template_name = 'blog/editar_post.html'
     fields = ['titulo','subtitulo', 'contenido', 'imagen']
 
 
 class EliminarPost(LoginRequiredMixin, DeleteView):
     model = Post
-    success_url = '/blog/post/'
+    success_url = '/blog/pages/'
     template_name = 'blog/eliminar_post.html'
 
 
