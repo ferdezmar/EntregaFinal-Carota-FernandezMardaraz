@@ -9,3 +9,7 @@ class ExtensionUsuario(models.Model):
     avatar = models.ImageField(upload_to='avatares',null=True, blank=True)
     descripcion = RichTextField(null=True)
     link_pagina = models.URLField(null=True)
+    
+    
+    def __str__(self):
+        return self.user.username

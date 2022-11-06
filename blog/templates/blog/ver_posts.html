@@ -5,6 +5,8 @@
 {% endblock mi_titulo %}
 
 {% block mi_contenido %}
+<p></p>
+<p><a class="navbar-brand" href={% url 'crear_post' %}>Escribir Post</a></p>
 <form action={% url 'ver_post' %} method="GET">
     <p>
     {{formulario}}

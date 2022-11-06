@@ -1,0 +1,24 @@
+{% extends 'home/base.html' %}
+
+{% block mi_titulo %}
+<title>Mensaje</title>
+{% endblock mi_titulo %}
+
+{% block mi_contenido %}
+
+<h1>{{mensaje.asunto}}</h1>
+
+
+<table border="1px" width="100%">
+    <tr>
+        <td>
+            {{ mensaje.contenido | safe }}
+        </td>
+    </tr>
+</table>
+
+<p>
+<b>Remitente:</b> {{mensaje.remitente}} <b>Fecha:</b> {{mensaje.fecha_creacion}}
+</p>
+
+{% endblock mi_contenido %}

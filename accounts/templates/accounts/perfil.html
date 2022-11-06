@@ -5,6 +5,8 @@
 {% endblock mi_titulo %}
 
 {% block mi_contenido %}
+<p></p>
+<a class="navbar-brand" href={% url 'ver_mensajes' %}><h1/>Mensajes</h1></a>
 <h1/>Información usuario:</h1>
 <p>
         {% if request.user.extensionusuario.avatar %}
@@ -30,4 +32,6 @@
 <p>
 <a href={% url 'cambiar_contraseña' %}>Cambiar contraseña</a>
 </p>
+
+
 {% endblock mi_contenido %}
