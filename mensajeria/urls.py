@@ -8,4 +8,3 @@ urlpatterns = [
     path('pages/eliminar/<int:pk>', views.EliminarMensaje.as_view(), name='eliminar_mensaje'),
 ]
 
-# path('pages/editar/<int:pk>', views.EditarMensaje.as_view(), name='editar_post'),

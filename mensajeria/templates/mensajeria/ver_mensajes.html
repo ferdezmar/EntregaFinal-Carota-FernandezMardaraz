@@ -14,7 +14,6 @@
         <table>
         <tr>
             <th width="180px">De</th>
-            {% comment %} <th width="180px">Para</th> {% endcomment %}
             <th width="180px">Asunto</th>
             <th width="180px">Fecha_creacion</th>
         </tr>
@@ -22,7 +21,6 @@
             {% if mensaje.destinatario|stringformat:'s' == request.user.username|stringformat:'s' %}
                 <tr>
                 <td>{{mensaje.remitente}}</td>
-                {% comment %} <td>{{mensaje.destinatario}}</td> {% endcomment %}
                 <td><a href={% url 'ver_mensaje' mensaje.id %}>{{mensaje.asunto}}</a></td>
                 <td>{{mensaje.fecha_creacion}}</td>
                 

@@ -11,6 +11,3 @@ class Mensaje (forms.Form):
     remitente = User
     destinatario = forms.ForeignKey(label = 'Destinatario', max_length=100)
     fecha_creacion =  datetime.datetime.now()
-
-# class BusquedaMensaje (forms.Form):
-#     titulo = forms.CharField(max_length=100, required=False)
