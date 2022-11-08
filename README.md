@@ -1,14 +1,17 @@
 # Documentacion de sistema
 
-El sistema cuenta con tres secciones que se describen a continuacion:
+El sistema cuenta con cinco secciones que se describen a continuacion:
 
 ## Home
-En esta seccion se puede apreciar el nombre del proyecto con los integrantes.
+Se puede apreciar el nombre del proyecto con los integrantes y acceder a a las distintas secciones del proyecto.
 
 ## Usuarios
-Esta sección del sistema se presenta como Registrarse/Iniciar Sesión. En esta seccion del sistema se puede crear un usuario, donde se ingresan los datos de username, email y contraseña. Una vez registrado el usuario procede a loguearse en Iniciar Sesión y la sección aparece como 'Nombre del Usuario'/Cerrar Sesión. 
+Esta sección del sistema se presenta como 'Iniciar Sesión' y 'Registrarse'. Se puede crear un usuario, ingresando los datos de username, email y contraseña. Una vez registrado, el usuario procede a loguearse en Iniciar Sesión y la sección aparece como 'Nombre del Usuario/Mensajes' y 'Cerrar Sesión'. 
 El botón Cerrar Sesión redirige a la sección Home con el usuario deslogueado.
 El botón con el nombre del usuario redirige a una sección donde ver los datos de usuario con la posibilidad de editarlos agregando descripción y página web o cambiar la contraseña. 
+
+## Mensajería
+La sección de mensajería se encuentra dentro del perfil de usuario. Al ingresari al link Mensajes se pueden ver los mensajes recibidos del usuario, se indica en caso de no haber recibido mensajes. El link Enviar mensaje permite crear un mensaje y elegir el destinatario entre los usuarios creados en la base de datos. Una vez creado el mensaje, su destinatario lo recibe en su perfil donde puede leerlo o eliminarlo.
 
 ## Ver Posts/Escribir Post
 En la sección Ver Posts se pueden ver los post creados por cualquier usuario. Para editarlos o eliminarlos se debe estar logueado.
